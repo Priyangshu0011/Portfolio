@@ -34,7 +34,7 @@ const Projects = () => {
     {
       title: "AI Smart Irrigation System",
       description: "An AI-driven irrigation system designed to analyze soil-moisture patterns and deliver crop-specific watering insights for precise and efficient water management.",
-      techStack: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
+      techStack: ["Bootstrap", "PHP", "MySQL"],
       outcomes: [
         "Unified AI predictions, automated irrigation controls and real-time IoT monitoring into a single intuitive dashboard.",
         "Outcomes: Enhanced water efficiency by up to 35%, expanded user support through 30+ FAQs.",

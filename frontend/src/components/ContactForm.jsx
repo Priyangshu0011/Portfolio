@@ -13,16 +13,23 @@ const ContactForm = () => {
     e.preventDefault();
     setStatus({ submitting: true, success: false, error: null });
     
+    // Web3Forms requires an access key to identify your account
+    // Get your free key at https://web3forms.com/ and paste it below
+    const submissionData = {
+      ...formData,
+      access_key: "YOUR_ACCESS_KEY_HERE" 
+    };
+    
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(submissionData)
       });
       
       const data = await response.json();
       
-      if (response.ok) {
+      if (data.success) {
         setStatus({ submitting: false, success: true, error: null });
         setFormData({ name: '', email: '', message: '' });
         // Optional: Reset success message after 5 seconds

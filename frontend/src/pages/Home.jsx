@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import TechStack from '../components/TechStack';
-import CodingProgress from '../components/CodingProgress';
+import Journey from '../components/Journey';
 import Projects from '../components/Projects';
 import Certificates from '../components/Certificates';
 import ContactForm from '../components/ContactForm';
@@ -21,7 +21,7 @@ const Home = () => {
         <TechStack />
         <Projects />
         <Certificates />
-        <CodingProgress />
+        <Journey />
         <ContactForm />
       </main>
 

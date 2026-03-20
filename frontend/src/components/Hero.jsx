@@ -13,7 +13,7 @@ const stars = [
   { top: '90%', left: '10%', size: 2, delay: 0.6 },
   { top: '60%', left: '45%', size: 1, delay: 0.2 },
   { top: '40%', left: '25%', size: 2, delay: 1.1 },
-  { top: '5%',  left: '70%', size: 1, delay: 0.7 },
+  { top: '5%', left: '70%', size: 1, delay: 0.7 },
   { top: '75%', left: '60%', size: 2, delay: 1.3 },
 ];
 
@@ -41,7 +41,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            <span>MERN Stack Developer | CSE Student at LPU</span>
+            <span>MERN Stack Developer | A Keen Learner</span>
           </motion.div>
         </motion.div>
 
@@ -64,12 +64,22 @@ const Hero = () => {
 
           {/* Core floating orb */}
           <motion.div
-            className="w-full h-full rounded-full border border-faint-yellow/30 bg-white/5 backdrop-blur-md flex items-center justify-center shadow-[0_0_50px_rgba(255,255,150,0.1)]"
+            className="w-full h-full rounded-full border border-faint-yellow/30 bg-white/5 backdrop-blur-md flex items-center justify-center shadow-[0_0_50px_rgba(255,255,150,0.1)] cursor-pointer"
             animate={{ y: [-15, 15, -15], rotate: [0, 5, -5, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            onClick={(e) => {
+              e.preventDefault();
+              const targetElement = document.querySelector('#about');
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
           >
             <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-faint-yellow to-neon-cyan blur-xl opacity-60" />
-            <span className="absolute text-white font-mono text-sm tracking-widest uppercase opacity-80 z-20 hover:scale-105 transition-transform cursor-default">
+            <span className="absolute text-white font-mono text-sm tracking-widest uppercase opacity-80 z-20 hover:scale-105 transition-transform cursor-pointer">
               Explore
             </span>
           </motion.div>
