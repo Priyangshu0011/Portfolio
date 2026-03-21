@@ -17,7 +17,7 @@ const certificates = [
     date: "Aug 2025",
     color: "#8b5cf6",
     image: "/build.png",
-    url: "http://ude.my/UC-0944cd11-fee7-4360-861f-4e6378623542",
+    url: "https://www.udemy.com/certificate/UC-0944cd11-fee7-4360-861f-4e6378b23542",
   },
   {
     title: "Frontend Development",
