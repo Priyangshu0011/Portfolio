@@ -14,7 +14,7 @@ const Projects = () => {
       ],
       imageUrl: "/AgriSurance.png",
       githubUrl: "https://github.com/Priyangshu0011/AgriSurance-Smart-Crop-Insurance-Portal",
-      liveUrl: "",
+      liveUrl: "https://agrisurance.vercel.app",
       featured: true
     },
     {
