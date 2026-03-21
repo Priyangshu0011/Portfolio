@@ -32,7 +32,7 @@ const LinkIcon = () => (
 const Journey = () => {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('education');
-  const [leetcodeStats, setLeetcodeStats] = useState({ solved: 450, streak: 45 });
+  const [leetcodeStats, setLeetcodeStats] = useState({ solved: 165, streak: 32 });
 
   // Real-time Leetcode fetch
   useEffect(() => {
@@ -48,10 +48,10 @@ const Journey = () => {
         fetch(`https://alfa-leetcode-api.onrender.com/${username}/calendar`).then(res => res.ok ? res.json() : {})
       ])
         .then(([solvedData, calendarData]) => {
-          setLeetcodeStats({
-            solved: solvedData.solvedProblem || 0,
-            streak: calendarData.streak || 0
-          });
+          setLeetcodeStats(prev => ({
+            solved: solvedData.solvedProblem || prev.solved,
+            streak: calendarData.streak || prev.streak
+          }));
         })
         .catch(err => console.log('Error fetching LeetCode stats:', err));
     }
