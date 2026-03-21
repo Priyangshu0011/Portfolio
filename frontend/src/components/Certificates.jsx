@@ -126,8 +126,12 @@ const Certificates = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {certificates.map((cert, idx) => (
-          <button
+          <motion.button
             key={cert.title}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
             onClick={() => { setSelected(idx); setIsPaused(true); }}
             className="group block text-left rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a]/90 hover:bg-[#1e293b] transition-all flex flex-col h-full"
           >
@@ -167,7 +171,7 @@ const Certificates = () => {
                 </div>
               </div>
             </div>
-          </button>
+          </motion.button>
         ))}
       </div>
 

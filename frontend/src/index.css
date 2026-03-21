@@ -52,6 +52,9 @@ html.light-mode *::after {
 .nav-underline {
   transition: width 0.25s ease-out 0.06s !important;
 }
+html.light-mode .nav-underline {
+  transition: width 0.25s ease-out 0.06s, background-color 0.55s ease !important;
+}
 /* ── RESUME dropdown arrow rotation ── */
 .resume-arrow {
   transition: transform 0.3s ease !important;
@@ -91,6 +94,9 @@ html.light-mode .text-obsidian-gray-light {
 /* ── Yellow → Vibrant Red in light mode ── */
 html.light-mode .text-faint-yellow {
   color: #dc2626 !important;   /* red-600 */
+}
+html.light-mode .bg-faint-yellow {
+  background-color: #dc2626 !important;
 }
 html.light-mode .border-faint-yellow,
 html.light-mode .border-faint-yellow\/80,
