@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 // Deterministic "random" positions for stars to avoid SSR mismatch
 const stars = [
@@ -18,6 +19,8 @@ const stars = [
 ];
 
 const Hero = () => {
+  const { isDark } = useTheme();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -49,14 +52,14 @@ const Hero = () => {
         <div className="relative mx-auto w-32 h-32 md:w-48 md:h-48 mt-12 flex items-center justify-center">
           {/* Outer orbiting ring */}
           <motion.div
-            className="absolute inset-0 rounded-full border border-neon-cyan/20"
+            className={`absolute inset-0 rounded-full border ${isDark ? 'border-neon-cyan/20' : 'border-red-500/30'}`}
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
             style={{ scale: 1.3 }}
           />
           {/* Inner orbiting ring (reverse) */}
           <motion.div
-            className="absolute inset-0 rounded-full border border-faint-yellow/20"
+            className={`absolute inset-0 rounded-full border ${isDark ? 'border-faint-yellow/20' : 'border-red-400/30'}`}
             animate={{ rotate: -360 }}
             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
             style={{ scale: 1.1 }}
@@ -64,7 +67,7 @@ const Hero = () => {
 
           {/* Core floating orb */}
           <motion.div
-            className="w-full h-full rounded-full border border-faint-yellow/30 bg-white/5 backdrop-blur-md flex items-center justify-center shadow-[0_0_50px_rgba(255,255,150,0.1)] cursor-pointer"
+            className={`w-full h-full rounded-full border backdrop-blur-md flex items-center justify-center cursor-pointer ${isDark ? 'border-faint-yellow/30 bg-white/5 shadow-[0_0_50px_rgba(255,255,150,0.1)]' : 'border-red-400/50 bg-red-100 shadow-[0_0_50px_rgba(220,38,38,0.2)]'}`}
             animate={{ y: [-15, 15, -15], rotate: [0, 5, -5, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             onClick={(e) => {
@@ -78,8 +81,8 @@ const Hero = () => {
               }
             }}
           >
-            <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-faint-yellow to-neon-cyan blur-xl opacity-60" />
-            <span className="absolute text-white font-mono text-sm tracking-widest uppercase opacity-80 z-20 hover:scale-105 transition-transform cursor-pointer">
+            <div className={`w-16 h-16 rounded-full blur-xl opacity-60 ${isDark ? 'bg-gradient-to-tr from-faint-yellow to-neon-cyan' : 'bg-gradient-to-tr from-red-600 to-red-400'}`} />
+            <span className={`absolute font-mono text-sm tracking-widest uppercase opacity-80 z-20 hover:scale-105 transition-transform cursor-pointer ${isDark ? 'text-white' : 'text-red-900 font-bold'}`}>
               Explore
             </span>
           </motion.div>

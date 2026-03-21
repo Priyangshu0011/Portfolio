@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const ContactForm = () => {
+  const { isDark } = useTheme();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState({ submitting: false, success: false, error: null });
 
@@ -12,30 +14,32 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ submitting: true, success: false, error: null });
-    
-    // Web3Forms requires an access key to identify your account
-    // Get your free key at https://web3forms.com/ and paste it below
-    const submissionData = {
-      ...formData,
-      access_key: "YOUR_ACCESS_KEY_HERE" 
-    };
-    
+
     try {
+      // Provide Web3Forms specific payload structure
+      const payload = {
+        ...formData,
+        access_key: "0a796db8-0e12-4195-adfb-2b3e34f50588" // <--- The User needs to drop their key here!
+      };
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submissionData)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
-      
+
       const data = await response.json();
-      
-      if (data.success) {
+
+      if (response.ok) {
         setStatus({ submitting: false, success: true, error: null });
         setFormData({ name: '', email: '', message: '' });
-        // Optional: Reset success message after 5 seconds
+        // Reset success message after 5 seconds
         setTimeout(() => setStatus(s => ({ ...s, success: false })), 5000);
       } else {
-        throw new Error(data.message || 'Failed to send message');
+        throw new Error(data.message || 'Transmission failed. Verify API Key.');
       }
     } catch (error) {
       setStatus({ submitting: false, success: false, error: error.message });
@@ -74,50 +78,50 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-mono text-white/70 block">Name</label>
-              <input 
-                type="text" 
+              <label htmlFor="name" className={`text-sm font-mono block ${isDark ? 'text-white/70' : 'text-slate-800 font-semibold'}`}>Name</label>
+              <input
+                type="text"
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full bg-space-black/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/50 transition-all font-sans"
+                className={`w-full border rounded-lg px-4 py-3 focus:outline-none transition-all font-sans ${isDark ? 'bg-space-black/80 border-white/10 text-white focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/50' : 'bg-white border-slate-300 text-slate-900 focus:border-red-500 focus:ring-1 focus:ring-red-500'}`}
                 placeholder="Enter your name"
               />
             </div>
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-mono text-white/70 block">Email</label>
-              <input 
-                type="email" 
+              <label htmlFor="email" className={`text-sm font-mono block ${isDark ? 'text-white/70' : 'text-slate-800 font-semibold'}`}>Email</label>
+              <input
+                type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-space-black/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/50 transition-all font-sans"
+                className={`w-full border rounded-lg px-4 py-3 focus:outline-none transition-all font-sans ${isDark ? 'bg-space-black/80 border-white/10 text-white focus:border-neon-cyan/50 focus:ring-1 focus:ring-neon-cyan/50' : 'bg-white border-slate-300 text-slate-900 focus:border-red-500 focus:ring-1 focus:ring-red-500'}`}
                 placeholder="Enter your email"
               />
             </div>
           </div>
-          
+
           <div className="space-y-2">
-            <label htmlFor="message" className="text-sm font-mono text-white/70 block">Message</label>
-            <textarea 
+            <label htmlFor="message" className={`text-sm font-mono block ${isDark ? 'text-white/70' : 'text-slate-800 font-semibold'}`}>Message</label>
+            <textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
               rows="5"
-              className="w-full bg-space-black/80 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-faint-yellow/50 focus:ring-1 focus:ring-faint-yellow/50 transition-all font-sans resize-none"
+              className={`w-full border rounded-lg px-4 py-3 focus:outline-none transition-all font-sans resize-none ${isDark ? 'bg-space-black/80 border-white/10 text-white focus:border-faint-yellow/50 focus:ring-1 focus:ring-faint-yellow/50' : 'bg-white border-slate-300 text-slate-900 focus:border-red-500 focus:ring-1 focus:ring-red-500 placeholder:text-slate-500'}`}
               placeholder="What's on your mind?"
             ></textarea>
           </div>
 
           <div className="flex flex-col items-center pt-4">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={status.submitting}
               className="relative group px-8 py-4 bg-transparent border border-white/20 rounded-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
@@ -134,7 +138,7 @@ const ContactForm = () => {
 
             {/* Status Messages */}
             {status.success && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 text-neon-cyan font-mono text-sm"
@@ -143,7 +147,7 @@ const ContactForm = () => {
               </motion.div>
             )}
             {status.error && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="mt-4 text-red-400 font-mono text-sm"

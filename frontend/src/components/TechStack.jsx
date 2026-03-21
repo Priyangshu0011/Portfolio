@@ -51,8 +51,8 @@ const TechStack = () => {
         {technologies.map((tech, idx) => (
           <motion.div
             key={idx}
-            className="bg-space-black/80 backdrop-blur-md border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center gap-5 hover:border-neon-cyan/40 hover:bg-white/5 shadow-lg group cursor-pointer transition-colors"
-            whileHover={{ y: -8, scale: 1.05, boxShadow: "0px 15px 30px rgba(34, 211, 238, 0.15)" }}
+            className={`backdrop-blur-md border rounded-2xl p-6 flex flex-col items-center justify-center gap-5 shadow-lg group cursor-pointer transition-colors ${isDark ? 'bg-space-black/80 border-white/5 hover:border-neon-cyan/40 hover:bg-white/5' : 'bg-white/90 border-slate-200 hover:border-red-400 hover:bg-red-50'}`}
+            whileHover={{ y: -8, scale: 1.05, boxShadow: isDark ? "0px 15px 30px rgba(34,211,238,0.15)" : "0px 15px 30px rgba(220,38,38,0.2)" }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -63,10 +63,10 @@ const TechStack = () => {
               boxShadow: { duration: 0.15, delay: 0 },
             }}
           >
-            <div className="filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300 transform group-hover:-translate-y-2">
+            <div className={`filter transition-all duration-300 transform group-hover:-translate-y-2 ${isDark ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]' : 'drop-shadow-sm group-hover:drop-shadow-md'}`}>
               {tech.icon}
             </div>
-            <span className="text-white/80 font-mono font-medium group-hover:text-white transition-colors text-sm tracking-wide text-center">
+            <span className={`font-mono font-medium transition-colors text-sm tracking-wide text-center ${isDark ? 'text-white/80 group-hover:text-white' : 'text-slate-700 group-hover:text-red-700'}`}>
               {tech.name}
             </span>
           </motion.div>

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const About = () => {
+  const { isDark } = useTheme();
+
   return (
     <section id="about" className="min-h-screen py-20 px-4 max-w-6xl mx-auto relative z-10 flex flex-col justify-center">
       <motion.div
@@ -35,7 +38,7 @@ const About = () => {
                   href="https://www.linkedin.com/in/priyangshusett0011"
                   target="_blank" rel="noreferrer"
                   title="LinkedIn"
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-neon-cyan hover:border-neon-cyan/60 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] bg-white/5 hover:bg-white/10 transition-all duration-300"
+                  className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 ${isDark ? 'border-white/20 text-white/60 hover:text-neon-cyan hover:border-neon-cyan/60 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] bg-white/5 hover:bg-white/10' : 'border-slate-300 text-slate-700 hover:text-red-600 hover:border-red-600 hover:shadow-[0_0_12px_rgba(220,38,38,0.3)] bg-white hover:bg-slate-50'}`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -49,7 +52,7 @@ const About = () => {
                   href="https://github.com/Priyangshu0011"
                   target="_blank" rel="noreferrer"
                   title="GitHub"
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-neon-cyan hover:border-neon-cyan/60 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] bg-white/5 hover:bg-white/10 transition-all duration-300"
+                  className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 ${isDark ? 'border-white/20 text-white/60 hover:text-neon-cyan hover:border-neon-cyan/60 hover:shadow-[0_0_12px_rgba(34,211,238,0.3)] bg-white/5 hover:bg-white/10' : 'border-slate-300 text-slate-700 hover:text-red-600 hover:border-red-600 hover:shadow-[0_0_12px_rgba(220,38,38,0.3)] bg-white hover:bg-slate-50'}`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -60,7 +63,7 @@ const About = () => {
                 <a
                   href="mailto:priyangshusett2004@gmail.com"
                   title="Send Email"
-                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-faint-yellow hover:border-faint-yellow/60 hover:shadow-[0_0_12px_rgba(253,224,71,0.3)] bg-white/5 hover:bg-white/10 transition-all duration-300"
+                  className={`w-10 h-10 flex items-center justify-center rounded-full border transition-all duration-300 ${isDark ? 'border-white/20 text-white/60 hover:text-faint-yellow hover:border-faint-yellow/60 hover:shadow-[0_0_12px_rgba(253,224,71,0.3)] bg-white/5 hover:bg-white/10' : 'border-slate-300 text-slate-700 hover:text-red-500 hover:border-red-500 hover:shadow-[0_0_12px_rgba(239,68,68,0.3)] bg-white hover:bg-slate-50'}`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -98,7 +101,7 @@ const About = () => {
               <div className="text-left relative z-20 border-t border-white/10 pt-4">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse inline-block"></span>
-                  <h3 className="text-sm text-white/60 font-mono uppercase tracking-widest">Current Status</h3>
+                  <h3 className={`text-sm font-mono uppercase tracking-widest ${isDark ? 'text-white/60' : 'text-slate-800 font-bold'}`}>Current Status</h3>
                 </div>
                 <p className="text-neon-cyan font-mono text-sm font-medium mb-3">Building the web of tomorrow</p>
                 <div className="h-1 w-full bg-white/10 rounded overflow-hidden">

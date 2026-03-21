@@ -1,7 +1,32 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const certificates = [
+  {
+    title: "Master Generative AI Tools (ChatGPT & more)",
+    issuer: "Udemy",
+    date: "Aug 2025",
+    color: "#dc2626",
+    image: "/master.png",
+    url: "http://ude.my/UC-c99a9428-b478-422b-9cd0-be6fe02e0a1f",
+  },
+  {
+    title: "Build Generative AI Apps & Solutions with No-Code Tools",
+    issuer: "Udemy",
+    date: "Aug 2025",
+    color: "#8b5cf6",
+    image: "/build.png",
+    url: "http://ude.my/UC-0944cd11-fee7-4360-861f-4e6378623542",
+  },
+  {
+    title: "Frontend Development",
+    issuer: "Board Infinity",
+    date: "Jul 2025",
+    color: "#3b82f6",
+    image: "/front.png",
+    url: "",
+  },
   {
     title: "Social Networks",
     issuer: "NPTEL",
@@ -11,36 +36,25 @@ const certificates = [
     url: "https://archive.nptel.ac.in/noc/Ecertificate/?q=NPTEL25CS65S64750122104445616",
   },
   {
-    title: "Master Generative AI Tools (ChatGPT & more)",
-    issuer: "Udemy",
-    date: "Aug 2025",
-    color: "#dc2626",
-    image: "/master.png",
-  },
-  {
-    title: "Foundations of Cybersecurity",
-    issuer: "NPTEL",
-    date: "Mar 2025",
-    color: "#fde047",
-    image: "/cyber.png",
-  },
-  {
     title: "The Bits and Bytes of Computer Networking",
-    issuer: "Coursera",
+    issuer: "Google / Coursera",
     date: "Sep 2024",
     color: "#22d3ee",
-    image: "/picture.png",
+    image: "/bits.png",
+    url: "https://coursera.org/verify/7L4JCI3S5MZZ",
   },
   {
     title: "Foundations of Cybersecurity",
-    issuer: "Coursera",
+    issuer: "Google / Coursera",
     date: "Mar 2024",
-    color: "#dc2626",
-    image: "/AgriSurance.png",
+    color: "#fde047",
+    image: "/cyber.png",
+    url: "https://coursera.org/verify/55844D4GZZRG",
   },
 ];
 
 const Certificates = () => {
+  const { isDark } = useTheme();
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [displayTitle, setDisplayTitle] = useState('');
@@ -89,7 +103,7 @@ const Certificates = () => {
   }, [current]);
 
   return (
-    <section id="certificates" className="py-20 px-4 max-w-6xl mx-auto relative z-10">
+    <section id="certificates" className={`py-20 px-4 max-w-6xl mx-auto relative ${selected !== null ? 'z-50' : 'z-10'}`}>
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -111,7 +125,7 @@ const Certificates = () => {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {certificates.slice(0, 3).map((cert, idx) => (
+        {certificates.map((cert, idx) => (
           <button
             key={cert.title}
             onClick={() => { setSelected(idx); setIsPaused(true); }}
@@ -130,25 +144,25 @@ const Certificates = () => {
               </div>
               <div className="flex flex-col justify-between w-full h-full">
                 <div>
-                  <h3 className="text-base font-bold text-white mb-1 leading-snug">{cert.title}</h3>
+                  <h3 className="text-base font-bold text-slate-50 mb-1 leading-snug">{cert.title}</h3>
                   <p className="text-sm text-slate-400 mb-3">{cert.issuer}</p>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-400 w-full mt-auto">
                   <span>{cert.date}</span>
                   {cert.url ? (
-                    <a href={cert.url} target="_blank" rel="noreferrer" className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full border border-white/10 text-white font-medium hover:text-neon-cyan transition-colors ml-auto shadow-[0_0_10px_rgba(34,211,238,0.1)]" onClick={(e) => { e.stopPropagation(); }}>
+                    <a href={cert.url} target="_blank" rel="noreferrer" className={`flex items-center gap-1 px-3 py-1.5 rounded-full border font-medium transition-colors ml-auto shadow-[0_0_10px_rgba(34,211,238,0.1)] ${isDark ? 'bg-white/5 hover:bg-white/10 border-white/10 text-slate-50 hover:text-neon-cyan' : 'bg-white hover:bg-red-50 border-slate-300 text-slate-900 hover:text-red-600'}`} onClick={(e) => { e.stopPropagation(); }}>
                       Verify
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                       </svg>
                     </a>
                   ) : (
-                    <span className="flex items-center gap-1 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full border border-white/10 text-white font-medium hover:text-neon-cyan transition-colors ml-auto shadow-[0_0_10px_rgba(34,211,238,0.1)] cursor-pointer">
+                    <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); }} className={`flex items-center gap-1 px-3 py-1.5 rounded-full border font-medium ml-auto cursor-not-allowed opacity-70 ${isDark ? 'bg-white/5 border-white/10 text-slate-400' : 'bg-white border-slate-300 text-slate-900'}`}>
                       Verify
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                       </svg>
-                    </span>
+                    </button>
                   )}
                 </div>
               </div>
@@ -176,14 +190,24 @@ const Certificates = () => {
 
             <div className="p-6 bg-slate-950/90 border-t border-white/10 z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{certificates[selected].title}</h3>
-                <p className="text-slate-400 text-sm">{certificates[selected].issuer} • <span className="text-white/70">{certificates[selected].date}</span></p>
+                <h3 className="text-xl md:text-2xl font-bold text-slate-50 mb-1">{certificates[selected].title}</h3>
+                <p className="text-slate-400 text-sm">{certificates[selected].issuer} • <span className="text-slate-300">{certificates[selected].date}</span></p>
               </div>
               <div className="flex items-center gap-4 shrink-0 mt-2 md:mt-0">
-                {certificates[selected].url && (
-                  <a href={certificates[selected].url} target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-lg bg-neon-cyan text-slate-900 font-semibold text-sm hover:opacity-90 transition-opacity">
+                {certificates[selected].url ? (
+                  <a href={certificates[selected].url} target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-lg bg-neon-cyan text-slate-900 font-semibold text-sm hover:opacity-90 transition-opacity flex items-center gap-2">
                     Verify Certificate
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
                   </a>
+                ) : (
+                  <button onClick={(e) => e.preventDefault()} className="px-5 py-2.5 rounded-lg bg-slate-800 text-slate-500 font-semibold text-sm cursor-not-allowed flex items-center gap-2">
+                    Verify Certificate
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                  </button>
                 )}
                 <button
                   onClick={() => setSelected(null)}
