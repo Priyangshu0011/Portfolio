@@ -133,8 +133,8 @@ const Journey = () => {
                 <div className="flex flex-col text-left">
                   <h3 className={`text-xl md:text-2xl font-bold mb-1 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-900'}`}>{item.degree}</h3>
                   <p className="text-indigo-400 text-base font-medium mb-1.5">{item.year}</p>
-                  <p className="text-slate-300 text-base mb-1">{item.institution}</p>
-                  <p className="text-slate-400 text-sm">{item.details}</p>
+                  <p className={`text-base mb-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{item.institution}</p>
+                  <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{item.details}</p>
                 </div>,
                 idx
               )

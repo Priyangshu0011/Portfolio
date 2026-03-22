@@ -8,8 +8,8 @@ const Projects = () => {
       description: "An integrated crop insurance portal that enables farmers to digitally register, access policy details and submit claims, ensuring a smoother and more transparent insurance experience.",
       techStack: ["MERN Stack", "REST APIs", "Vite"],
       outcomes: [
-        "Built a responsive insurance-plan discovery interface with advanced filters for crops, region and coverage.",
-        "Role & Challenges: Orchestrated secure multi-role access for farmers, proposers and administrators.",
+        "Role: Architected a responsive insurance-plan platform featuring advanced filtering mechanisms.",
+        "Challenges: Engineered secure multi-role access protocols for farmers, proposers and administrators.",
         "Outcomes: Achieved 30% quicker claim resolution, 75% lower manual processing effort and improved end-to-end workflow reliability."
       ],
       imageUrl: "/AgriSurance.png",
@@ -22,9 +22,9 @@ const Projects = () => {
       description: "An efficient student record management system enabling teachers to maintain academic data with improved accuracy and operational ease.",
       techStack: ["HTML5", "CSS3", "JavaScript"],
       outcomes: [
-        "Engineered a responsive web-based platform with automated grade calculation, data validation and dynamic report generation.",
-        "Outcomes: Achieved 40% faster data processing, reduced manual errors by over 60%.",
-        "Role: Ensured full offline accessibility with seamless cross-device usability."
+        "Role: Spearheaded the development of a web platform with automated grading and data validation.",
+        "Challenges: Harmonized full offline accessibility with seamless cross-device synchronization.",
+        "Outcomes: Optimized data processing speed by 40% and eliminated over 60% of manual entry errors."
       ],
       imageUrl: "/student_report_generator.png",
       githubUrl: "https://github.com/Priyangshu0011/Student-Report-Generator",
@@ -36,9 +36,9 @@ const Projects = () => {
       description: "An AI-driven irrigation system designed to analyze soil-moisture patterns and deliver crop-specific watering insights for precise and efficient water management.",
       techStack: ["Bootstrap", "PHP", "MySQL"],
       outcomes: [
-        "Unified AI predictions, automated irrigation controls and real-time IoT monitoring into a single intuitive dashboard.",
-        "Outcomes: Enhanced water efficiency by up to 35%, expanded user support through 30+ FAQs.",
-        "Role: Strengthened system adaptability via a built-in feedback portal."
+        "Role: Constructed an intuitive dashboard integrating AI predictions and real-time IoT monitoring.",
+        "Challenges: Integrated disparate AI, IoT and hardware automation systems into a unified interface.",
+        "Outcomes: Boosted water efficiency by 35% and scaled user support via a 30+ entry FAQ system."
       ],
       imageUrl: "/ai_smart_irrigation_system.png",
       githubUrl: "https://github.com/Priyangshu0011/AI-powered-Smart-Irrigation-System",
