@@ -57,7 +57,7 @@ const ContactForm = () => {
       >
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white uppercase tracking-wider relative inline-block">
           Initialize <span className="text-transparent bg-clip-text bg-gradient-to-r from-faint-yellow to-neon-cyan">Link</span>
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-neon-cyan to-transparent"></div>
+          <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent ${isDark ? 'via-neon-cyan' : 'via-red-500'} to-transparent`}></div>
         </h2>
         <p className="text-obsidian-gray-light mt-6 text-lg">
           Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!

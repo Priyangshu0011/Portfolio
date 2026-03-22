@@ -94,11 +94,12 @@ const Journey = () => {
         transition={{ duration: 0.8 }}
         className="mb-8 text-center"
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider mb-2">
+        <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-wider mb-2 relative inline-block">
           My <span className="text-transparent bg-clip-text bg-gradient-to-r from-faint-yellow to-neon-cyan">Journey</span>
+          <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent ${isDark ? 'via-faint-yellow' : 'via-red-500'} to-transparent`}></div>
         </h2>
-        <p className="text-obsidian-gray-light mt-2 max-w-2xl mx-auto text-sm">
-          A complete view of my learning journey including education and coding practice progress.
+        <p className="text-obsidian-gray-light mt-2 max-w-2xl mx-auto text-lg">
+          A complete view of my learning journey including education and coding progress.
         </p>
       </motion.div>
 
