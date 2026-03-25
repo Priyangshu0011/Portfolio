@@ -123,10 +123,10 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={status.submitting}
-              className="relative group px-8 py-4 bg-transparent border border-white/20 rounded-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className={`relative group px-8 py-4 bg-transparent border rounded-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed transition-all ${isDark ? 'border-white/20 hover:border-cyan-400/50' : 'border-slate-300 hover:border-red-400'}`}
             >
-              <div className="absolute inset-0 w-0 bg-gradient-to-r from-neon-cyan/20 to-faint-yellow/20 group-hover:w-full transition-all duration-500 ease-out z-0"></div>
-              <span className="relative z-10 text-white font-mono uppercase tracking-widest text-sm flex items-center gap-2">
+              <div className={`absolute inset-0 w-0 group-hover:w-full transition-all duration-500 ease-out z-0 bg-gradient-to-r ${isDark ? 'from-neon-cyan/20 to-faint-yellow/20' : 'from-red-500/10 to-orange-500/10'}`}></div>
+              <span className={`relative z-10 font-mono uppercase tracking-widest text-sm flex items-center gap-2 transition-colors ${isDark ? 'text-white' : 'text-slate-800'}`}>
                 {status.submitting ? 'Transmitting...' : 'Send Message'}
                 {!status.submitting && (
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

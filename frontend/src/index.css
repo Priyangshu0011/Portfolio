@@ -34,7 +34,8 @@ html.light-mode *::after {
     box-shadow 0.55s ease,
     fill 0.55s ease,
     stroke 0.55s ease,
-    transform 0.3s ease !important;
+    transform 0.3s ease,
+    width 0.5s ease-out !important;
 }
 
 /* Also transition out of light mode back to dark */
