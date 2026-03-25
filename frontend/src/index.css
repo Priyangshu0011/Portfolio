@@ -38,7 +38,9 @@ html.light-mode *::after {
 }
 
 /* Also transition out of light mode back to dark */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   transition:
     background-color 0.55s ease,
     border-color 0.55s ease,
@@ -52,9 +54,11 @@ html.light-mode *::after {
 .nav-underline {
   transition: width 0.25s ease-out 0.06s !important;
 }
+
 html.light-mode .nav-underline {
   transition: width 0.25s ease-out 0.06s, background-color 0.55s ease !important;
 }
+
 /* ── RESUME dropdown arrow rotation ── */
 .resume-arrow {
   transition: transform 0.3s ease !important;
@@ -64,144 +68,175 @@ html.light-mode .nav-underline {
 html.light-mode .bg-space-black {
   background-color: #f0f4ff !important;
 }
+
 html.light-mode .bg-space-black\/80,
 html.light-mode .bg-space-black\/95 {
-  background-color: rgba(240,244,255,0.92) !important;
+  background-color: rgba(240, 244, 255, 0.92) !important;
 }
+
 html.light-mode .bg-space-black\/30,
 html.light-mode .bg-space-black\/50 {
-  background-color: rgba(240,244,255,0.6) !important;
+  background-color: rgba(240, 244, 255, 0.6) !important;
 }
 
 /* Text */
 html.light-mode .text-white {
   color: #0f172a !important;
 }
+
 html.light-mode .text-white\/80,
 html.light-mode .text-white\/70 {
   color: #1e293b !important;
 }
+
 html.light-mode .text-white\/40 {
   color: #64748b !important;
 }
+
 html.light-mode .text-white\/20 {
   color: #94a3b8 !important;
 }
+
 html.light-mode .text-obsidian-gray-light {
   color: #334155 !important;
 }
 
 /* ── Yellow → Vibrant Red in light mode ── */
 html.light-mode .text-faint-yellow {
-  color: #dc2626 !important;   /* red-600 */
+  color: #dc2626 !important;
+  /* red-600 */
 }
+
 html.light-mode .bg-faint-yellow {
   background-color: #dc2626 !important;
 }
+
 html.light-mode .border-faint-yellow,
 html.light-mode .border-faint-yellow\/80,
 html.light-mode .border-faint-yellow\/50,
 html.light-mode .border-faint-yellow\/40,
 html.light-mode .border-faint-yellow\/30,
 html.light-mode .border-faint-yellow\/20 {
-  border-color: rgba(220,38,38,0.45) !important;
+  border-color: rgba(220, 38, 38, 0.45) !important;
 }
+
 html.light-mode .bg-faint-yellow\/5 {
-  background-color: rgba(220,38,38,0.06) !important;
+  background-color: rgba(220, 38, 38, 0.06) !important;
 }
+
 html.light-mode .bg-faint-yellow\/8,
 html.light-mode .bg-faint-yellow\/10,
 html.light-mode .bg-faint-yellow\/15 {
-  background-color: rgba(220,38,38,0.1) !important;
+  background-color: rgba(220, 38, 38, 0.1) !important;
 }
+
 html.light-mode .hover\:bg-faint-yellow\/15:hover {
-  background-color: rgba(220,38,38,0.15) !important;
+  background-color: rgba(220, 38, 38, 0.15) !important;
 }
+
 html.light-mode .hover\:border-faint-yellow\/80:hover {
-  border-color: rgba(220,38,38,0.8) !important;
+  border-color: rgba(220, 38, 38, 0.8) !important;
 }
+
 html.light-mode .shadow-\[0_0_10px_rgba\(253\,224\,71\,0\.25\)\] {
-  box-shadow: 0 0 10px rgba(220,38,38,0.2) !important;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.2) !important;
 }
+
 html.light-mode .hover\:shadow-\[0_0_10px_rgba\(253\,224\,71\,0\.25\)\]:hover {
-  box-shadow: 0 0 10px rgba(220,38,38,0.3) !important;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.3) !important;
 }
 
 /* ── Neon-cyan → Deep crimson-red in light mode ── */
 html.light-mode .text-neon-cyan {
-  color: #b91c1c !important;  /* red-700, deeper warm crimson */
+  color: #b91c1c !important;
+  /* red-700, deeper warm crimson */
 }
+
 html.light-mode .border-neon-cyan,
 html.light-mode .border-neon-cyan\/20,
 html.light-mode .border-neon-cyan\/30,
 html.light-mode .border-neon-cyan\/40,
 html.light-mode .border-neon-cyan\/60 {
-  border-color: rgba(220,38,38,0.35) !important;
+  border-color: rgba(220, 38, 38, 0.35) !important;
 }
+
 html.light-mode .bg-neon-cyan\/20,
 html.light-mode .bg-neon-cyan\/5 {
-  background-color: rgba(185,28,28,0.1) !important;
+  background-color: rgba(185, 28, 28, 0.1) !important;
 }
+
 html.light-mode .shadow-\[0_0_30px_rgba\(34\,211\,238\,0\.2\)\] {
-  box-shadow: 0 0 30px rgba(185,28,28,0.2) !important;
+  box-shadow: 0 0 30px rgba(185, 28, 28, 0.2) !important;
 }
+
 html.light-mode .hover\:shadow-\[0_20px_40px_rgba\(34\,211\,238\,0\.15\)\]:hover {
-  box-shadow: 0 20px 40px rgba(185,28,28,0.15) !important;
+  box-shadow: 0 20px 40px rgba(185, 28, 28, 0.15) !important;
 }
 
 /* ── Hero: Name gradient → rich red-to-orange in light mode ── */
 html.light-mode .bg-gradient-to-r.from-faint-yellow.to-neon-cyan {
   background-image: linear-gradient(to right, #dc2626, #ea580c) !important;
 }
+
 /* About ME gradient underline */
 html.light-mode .bg-gradient-to-r.from-faint-yellow.to-transparent {
   background-image: linear-gradient(to right, #dc2626, transparent) !important;
 }
+
 /* Project/Tech underline: cyan-to-transparent */
 html.light-mode .bg-gradient-to-r.from-neon-cyan.to-transparent {
   background-image: linear-gradient(to right, #b91c1c, transparent) !important;
 }
+
 /* Gradient text spans: neon-cyan-to-faint-yellow */
 html.light-mode .bg-gradient-to-r.from-neon-cyan.to-faint-yellow {
   background-image: linear-gradient(to right, #dc2626, #ea580c) !important;
 }
+
 /* Explore orb glow + orbiting ring */
 html.light-mode .shadow-\[0_0_50px_rgba\(255\,255\,150\,0\.1\)\] {
-  box-shadow: 0 0 50px rgba(220,38,38,0.18) !important;
+  box-shadow: 0 0 50px rgba(220, 38, 38, 0.18) !important;
 }
+
 html.light-mode .border-faint-yellow\/30 {
-  border-color: rgba(220,38,38,0.45) !important;
+  border-color: rgba(220, 38, 38, 0.45) !important;
 }
 
 
 /* ── Dull dark gradient backgrounds in light mode ── */
 html.light-mode .bg-gradient-to-tr {
   background-image: none !important;
-  background-color: rgba(255,255,255,0.6) !important;
+  background-color: rgba(255, 255, 255, 0.6) !important;
 }
+
 html.light-mode .bg-white\/5 {
-  background-color: rgba(255,255,255,0.75) !important;
-  box-shadow: 0 2px 12px rgba(15,23,42,0.07);
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.07);
 }
+
 html.light-mode .bg-white\/10 {
-  background-color: rgba(255,255,255,0.88) !important;
+  background-color: rgba(255, 255, 255, 0.88) !important;
 }
+
 html.light-mode .border-white\/10 {
-  border-color: rgba(15,23,42,0.12) !important;
+  border-color: rgba(15, 23, 42, 0.12) !important;
 }
+
 html.light-mode .border-white\/5 {
-  border-color: rgba(15,23,42,0.08) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
 }
+
 html.light-mode .border-white\/20 {
-  border-color: rgba(15,23,42,0.18) !important;
+  border-color: rgba(15, 23, 42, 0.18) !important;
 }
 
 /* ── Hover backgrounds ── */
 html.light-mode .hover\:bg-white\/10:hover {
-  background-color: rgba(255,255,255,0.92) !important;
+  background-color: rgba(255, 255, 255, 0.92) !important;
 }
+
 html.light-mode .hover\:bg-white\/5:hover {
-  background-color: rgba(255,255,255,0.65) !important;
+  background-color: rgba(255, 255, 255, 0.65) !important;
 }
 
 /* ── ExpressJS & GitHub icons: white → dark in light mode ── */
@@ -216,7 +251,7 @@ html.light-mode .tech-icon-white circle {
 /* ── P logo: red-to-orange gradient in light mode ── */
 html.light-mode #navbar-logo {
   background-image: linear-gradient(to top right, #dc2626, #ea580c) !important;
-  box-shadow: 0 0 15px rgba(220,38,38,0.4) !important;
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4) !important;
   color: #ffffff !important;
 }
 
@@ -228,12 +263,10 @@ html.light-mode .text-white.text-lg {
 
 /* ── Explore orb 2nd ring (faint-yellow border) more visible in light mode ── */
 html.light-mode .border-faint-yellow\/20 {
-  border-color: rgba(220,38,38,0.35) !important;
+  border-color: rgba(220, 38, 38, 0.35) !important;
 }
+
 /* Make inner orbiting ring more prominent in light mode via shadow */
 html.light-mode [style*="scale: 1.1"] {
-  box-shadow: 0 0 12px rgba(220,38,38,0.2);
+  box-shadow: 0 0 12px rgba(220, 38, 38, 0.2);
 }
-
-
-
