@@ -63,7 +63,7 @@ const TechStack = () => {
       >
         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white uppercase tracking-wider relative inline-block">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-faint-yellow">Tech</span> Arsenal
-          <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-l ${isDark ? 'from-neon-cyan' : 'from-red-600'} to-transparent`}></div>
+          <div className={`absolute -bottom-2 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent ${isDark ? 'via-neon-cyan' : 'via-red-500'} to-transparent`}></div>
         </h2>
         <p className={`mt-4 mb-8 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>A showcase of technologies I've mastered on my journey as a developer.</p>
 
