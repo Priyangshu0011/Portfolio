@@ -39,11 +39,11 @@ const TechStack = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8 }}
-        className="mb-6"
+        className="mb-6 text-right"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white uppercase tracking-wider relative inline-block text-right w-full">
+        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white uppercase tracking-wider relative inline-block">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-cyan to-faint-yellow">Tech</span> Arsenal
-          <div className="absolute -bottom-2 right-0 w-full h-[1px] bg-gradient-to-l from-neon-cyan to-transparent"></div>
+          <div className={`absolute -bottom-2 right-0 w-full h-[1px] bg-gradient-to-l ${isDark ? 'from-neon-cyan' : 'from-red-600'} to-transparent`}></div>
         </h2>
       </motion.div>
 
