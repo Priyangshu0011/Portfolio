@@ -25,7 +25,7 @@ const About = () => {
                 Hello! I'm <span className="text-white font-medium">Priyangshu Sett</span>, a passionate Computer Science student pursuing my B.Tech at LPU. My journey in tech is driven by an insatiable curiosity and a problem-solving mindset.
               </p>
               <p>
-                I specialize in the <span className="text-neon-cyan font-medium">MERN Stack</span>, crafting highly responsive and visually striking web applications. However, my interests stretch beyond just writing code into the realm of <span className="text-faint-yellow font-medium">DevOps</span>, ensuring robust, scalable, and automated deployment pipelines.
+                I specialize in the <span className="text-neon-cyan font-medium">MERN Stack</span>, crafting highly responsive and visually striking web applications. However, my interests stretch beyond just writing code into the realm of <span className="text-faint-yellow font-medium">DevOps</span>, ensuring robust, scalable and automated deployment pipelines.
               </p>
               <p>
                 When I'm not deploying servers or centering divs, I'm constantly analyzing algorithms and striving to write cleaner, more efficient code.
