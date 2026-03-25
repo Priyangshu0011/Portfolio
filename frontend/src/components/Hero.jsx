@@ -44,7 +44,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 1 }}
           >
-            <span>MERN Stack Developer | A Keen Learner</span>
+            <span>Full-Stack Innovator | Passionate Tech Builder</span>
           </motion.div>
         </motion.div>
 
