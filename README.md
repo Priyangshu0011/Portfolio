@@ -17,7 +17,7 @@ portfolio/
 │   ├── src/
 │   │   ├── assets/              # Images, icons
 │   │   ├── components/
-│   │   │   ├── Hero.jsx         # Antigravity Hero section
+│   │   │   ├── Hero.jsx         # Hero section
 │   │   │   ├── About.jsx
 │   │   │   ├── TechStack.jsx
 │   │   │   ├── Projects.jsx
@@ -26,7 +26,7 @@ portfolio/
 │   │   ├── pages/
 │   │   │   └── Home.jsx         # Main composition page
 │   │   ├── App.jsx
-│   │   ├── index.css            # Tailwind & CSS variables for Antigravity theme
+│   │   ├── index.css            # Tailwind & CSS variables
 │   │   └── main.jsx
 │   ├── tailwind.config.js       # Themed color configs
 │   ├── package.json
