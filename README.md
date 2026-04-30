@@ -1,4 +1,4 @@
-# MERN Stack Portfolio: Priyangshu Sett (Antigravity Theme)
+# MERN Stack Portfolio: Priyangshu Sett
 
 ## Folder Structure
 
